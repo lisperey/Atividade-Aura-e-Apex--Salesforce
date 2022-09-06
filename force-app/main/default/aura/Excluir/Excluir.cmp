@@ -1,0 +1,24 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" access="global" controller="Excluir">
+
+    <aura:attribute type="List"  name="contas" />
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute type="List"  name="deletar" />
+
+    <aura:attribute name="nomeRegistro" type="String" />
+    <lightning:input type="text" value="{!v.nomeRegistro}" label="Nome do Registro" required="true" />
+    <lightning:button variant="brand" label="Buscar Registro"  onclick="{! c.buscarRegistro }" />
+
+    
+    <lightning:datatable
+    keyField="Id"
+    data="{! v.contas }"
+    columns="{! v.columns }"
+    onrowselection="{!c.marcarRegistro}"
+    />
+
+    <aura:import library="lightning:confirm" property="LightningConfirm" />
+    <lightning:button label="Deletar" onclick="{! c.enviar  }"/>
+    
+
+
+</aura:component>	

@@ -1,0 +1,14 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" access="global" controller="Buscar">
+    <aura:attribute type="List"  name="contas" />
+    <aura:attribute name="columns" type="List"/>
+
+    <lightning:button variant="brand-outline" label="Buscar Registros"  onclick="{! c.criarTabela }"/>
+
+    <lightning:datatable
+    keyField="id"
+    data="{! v.contas }"
+    columns="{! v.columns }"
+    hideCheckboxColumn="true"/>
+        
+
+</aura:component>

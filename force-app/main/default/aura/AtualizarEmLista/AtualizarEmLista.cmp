@@ -1,0 +1,25 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" access="global" controller="AtualizarEmLista">
+    <aura:attribute type="List"  name="contas" />
+    <aura:attribute name="columns" type="List"/>
+    
+    <aura:attribute type="List"  name="deleteId" />
+    
+
+    <aura:handler name="init" value="{!this}" action="{! c.buscarRegistro  }"/>
+    <aura:handler event="force:refreshView" action="{! c.buscarRegistro  }" />
+    
+
+    <aura:import library="lightning:confirm" property="LightningConfirm" />
+    <lightning:button label="Deletar" onclick="{! c.enviar  }"/>
+
+    <lightning:datatable
+    keyField="Id"
+    data="{! v.contas }"
+    columns="{! v.columns }"
+    hideCheckboxColumn="true"
+    onsave="{! c.salvarAtualizacao }"/>
+
+    
+
+</aura:component>	
+
